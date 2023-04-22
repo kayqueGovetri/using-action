@@ -1,0 +1,21 @@
+name: test
+on: push
+
+jobs:
+  test:
+    name: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+        with:
+          fetch-depth: 0
+      - name: Botcity action
+        uses: kayqueGovetri/action-test@1.8
+        with:
+          update: true
+          deploy: false
+          release: false
+          version: '1.2'
+          botId: 'testeDailyDeploy2'
+          technology: 'python'
