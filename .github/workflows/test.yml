@@ -19,3 +19,7 @@ jobs:
           version: '1.2'
           botId: 'testeDailyDeploy2'
           technology: 'python'
+        env:
+          LOGIN: ${{ secrets.LOGIN }}
+          SERVER: ${{ secrets.SERVER }}
+          KEY: ${{ secrets.KEY }}
