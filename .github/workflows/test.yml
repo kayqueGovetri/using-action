@@ -13,10 +13,10 @@ jobs:
       - name: Botcity action
         uses: kayqueGovetri/action-test@1.8
         with:
-          update: true
-          deploy: false
-          release: false
-          version: '1.2'
+          update: false
+          deploy: true
+          release: true
+          version: '1.3'
           botId: 'testeDailyDeploy2'
           technology: 'python'
         env:
