@@ -19,7 +19,7 @@ jobs:
           version: '1.3'
           botId: 'testeDailyDeploy2'
           technology: 'python'
-          pathBot: './bot.zip'
+          botPath: './bot.zip'
         env:
           LOGIN: ${{ secrets.LOGIN }}
           SERVER: ${{ secrets.SERVER }}
