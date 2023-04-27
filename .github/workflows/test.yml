@@ -2,25 +2,34 @@ name: test
 on: push
 
 jobs:
-  test:
-    name: test
+  debug:
+    name: Debug
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@master
-        with:
-          fetch-depth: 0
-      - name: Botcity action
-        uses: kayqueGovetri/action-test@1.12
-        with:
-          update: true
-          deploy: false
-          release: false
-          version: '1.3'
-          botId: 'testeDailyDeploy2'
-          technology: 'python'
-          botPath: './bot.zip'
+      - name: Dump GitHub context
         env:
-          LOGIN: ${{ secrets.LOGIN }}
-          SERVER: ${{ secrets.SERVER }}
-          KEY: ${{ secrets.KEY }}
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+
+#  test:
+#    name: test
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - uses: actions/checkout@master
+#        with:
+#          fetch-depth: 0
+#      - name: Botcity action
+#        uses: kayqueGovetri/action-test@1.12
+#        with:
+#          update: true
+#          deploy: false
+#          release: false
+#          version: '1.3'
+#          botId: 'testeDailyDeploy2'
+#          technology: 'python'
+#          botPath: './bot.zip'
+#        env:
+#          LOGIN: ${{ secrets.LOGIN }}
+#          SERVER: ${{ secrets.SERVER }}
+#          KEY: ${{ secrets.KEY }}
