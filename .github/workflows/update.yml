@@ -1,0 +1,30 @@
+name: Update latest version Bot.
+
+on:
+  push:
+  	- main
+
+jobs:
+  update-latest:
+    name: Update latest version in BotCity.
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get permission to build.
+        run: |
+        	chmod +x build.sh
+      - name: Execute to build.
+        run: |
+            ./build.sh
+      - name: Botcity action
+        uses: botcity-dev/botcity-action-bots@v1.0.0
+        with:
+          update: true.
+          deploy: false
+          release: false
+          botId: 'usingGithubAction'
+          technology: 'python'
+          botPath: './bot.zip'
+        env:
+          LOGIN: ${{ secrets.LOGIN }}
+          SERVER: ${{ secrets.SERVER }}
+          KEY: ${{ secrets.KEY }}

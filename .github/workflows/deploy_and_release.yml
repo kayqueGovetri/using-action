@@ -1,0 +1,32 @@
+name: Deploy and Release in from github release
+
+on:
+  release:
+    types: [ published ]
+
+
+jobs:
+  deploy-and-release:
+    name: Deploy and release in BotCity.
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get permission to build.
+        run: |
+        	chmod +x build.sh
+      - name: Execute to build.
+        run: |
+            ./build.sh
+      - name: Botcity action
+        uses: botcity-dev/botcity-action-bots@v1.0.0
+        with:
+          update: false
+          deploy: true
+          release: true
+          version: ${{ github.event.release.tag_name }}
+          botId: 'usingGithubAction'
+          technology: 'python'
+          botPath: './bot.zip'
+        env:
+          LOGIN: ${{ secrets.LOGIN }}
+          SERVER: ${{ secrets.SERVER }}
+          KEY: ${{ secrets.KEY }}
