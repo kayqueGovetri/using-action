@@ -10,6 +10,7 @@ jobs:
     name: Update latest version in BotCity.
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: Get permission to build.
         run: chmod +x build.sh
       - name: Execute to build.
