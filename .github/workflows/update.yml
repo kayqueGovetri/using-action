@@ -3,7 +3,7 @@ name: Update latest version Bot.
 on:
   push:
     branches:
-  	  - main
+      - main
 
 jobs:
   update-latest:
