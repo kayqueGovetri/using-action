@@ -11,11 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get permission to build.
-        run: |
-        	chmod +x build.sh
+        run: chmod +x build.sh
       - name: Execute to build.
-        run: |
-            ./build.sh
+        run: ./build.sh
       - name: Botcity action
         uses: botcity-dev/botcity-action-bots@v1.0.0
         with:
